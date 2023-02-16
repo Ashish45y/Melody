@@ -13,12 +13,17 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ServiceComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ServiceScoped
+import dev.ashish.melody.data.remote.MusicDatabase
 import java.net.URLConnection.setDefaultRequestProperty
 
 
 @Module
 @InstallIn(ServiceComponent::class)
 object ServiceModule {
+
+  @Provides
+  @ServiceScoped
+  fun provideMusicDatabase() = MusicDatabase()
     @Provides
     @ServiceScoped
     fun provideAudioAttributes() = AudioAttributes.Builder()
