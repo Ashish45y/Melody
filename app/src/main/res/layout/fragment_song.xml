@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <com.google.android.material.textview.MaterialTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvSongName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textview.MaterialTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvCurTime"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         app:layout_constraintStart_toEndOf="@+id/tvCurTime"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-    <com.google.android.material.textview.MaterialTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvSongDuration"
         android:layout_width="50dp"
         android:layout_height="wrap_content"

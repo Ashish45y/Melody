@@ -2,7 +2,9 @@ package dev.ashish.melody.exoplayer
 
 import android.content.ComponentName
 import android.content.Context
-import android.media.MediaDrm.PlaybackComponent
+
+
+import android.support.v4.media.session.PlaybackStateCompat
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.MediaMetadataCompat
@@ -20,8 +22,8 @@ class MusicServiceConnection (context: Context) {
     private val _networkError = MutableLiveData<Event<Resource<Boolean>>>()
     val networkError : LiveData<Event<Resource<Boolean>>> = _networkError
 
-    private val _playbackState = MutableLiveData<PlaybackComponent?>()
-    val playbackState : LiveData<PlaybackComponent?> = _playbackState
+    private val _playbackState = MutableLiveData<PlaybackStateCompat?>()
+    val playbackState: LiveData<PlaybackStateCompat?> = _playbackState
 
     private val _currentPlayingSong = MutableLiveData<MediaMetadataCompat?>()
     val currentPlayingSong : LiveData<MediaMetadataCompat?> = _currentPlayingSong
@@ -65,7 +67,7 @@ class MusicServiceConnection (context: Context) {
     }
 
     private inner class MediaControllerCallBack: MediaControllerCompat.Callback(){
-        fun onPlaybackStateChanged(state: PlaybackComponent?) {
+        override fun onPlaybackStateChanged(state: PlaybackStateCompat?) {
             _playbackState.postValue(state)
         }
 
