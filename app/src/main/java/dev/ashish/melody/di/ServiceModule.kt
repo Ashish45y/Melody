@@ -5,7 +5,7 @@ import android.content.Context
 import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.audio.AudioAttributes
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import com.google.android.exoplayer2.source.DefaultMediaSourceFactory
 import com.google.android.exoplayer2.util.Util
 import dagger.Module
 import dagger.Provides
@@ -43,11 +43,9 @@ object ServiceModule {
 
     @Provides
     @ServiceScoped
-    fun provideDataSourceFactory(
+    fun provideMediaSourceFactory(
         @ApplicationContext context: Context
-    ) =DefaultDataSourceFactory(context).apply {
+    ) = DefaultMediaSourceFactory(context).apply {
         setDefaultRequestProperty("User-Agent", Util.getUserAgent(context, "Melody"))
     }
-
-
 }
